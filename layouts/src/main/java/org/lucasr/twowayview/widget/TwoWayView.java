@@ -112,4 +112,15 @@ public class TwoWayView extends RecyclerView {
         TwoWayLayoutManager layout = (TwoWayLayoutManager) getLayoutManager();
         return layout.getLastVisiblePosition();
     }
+
+    @Override
+    public boolean canScrollVertically(int direction) {
+        // check if scrolling up
+        if (direction < 1) {
+            boolean original = super.canScrollVertically(direction);
+            return !original && getChildAt(0) != null && getChildAt(0).getTop() < 0 || original;
+        }
+        return super.canScrollVertically(direction);
+
+    }
 }

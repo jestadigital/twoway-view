@@ -16,6 +16,8 @@
 
 package org.lucasr.twowayview;
 
+import java.util.List;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PointF;
@@ -33,8 +35,6 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup.MarginLayoutParams;
-
-import java.util.List;
 
 public abstract class TwoWayLayoutManager extends LayoutManager {
     private static final String LOGTAG = "TwoWayLayoutManager";
@@ -274,6 +274,11 @@ public abstract class TwoWayLayoutManager extends LayoutManager {
 
     private void fillSpecific(int position, Recycler recycler, State state) {
         if (state.getItemCount() <= 0) {
+            return;
+        }
+
+        // https://github.com/lucasr/twoway-view/pull/142
+        if (position >= state.getItemCount()) {
             return;
         }
 

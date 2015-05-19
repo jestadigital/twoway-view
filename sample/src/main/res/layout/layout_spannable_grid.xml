@@ -23,5 +23,5 @@
     android:layout_height="match_parent"
     style="@style/TwoWayView"
     app:twowayview_layoutManager="SpannableGridLayoutManager"
-    app:twowayview_numColumns="3"
-    app:twowayview_numRows="3" />
+    app:twowayview_numColumns="6"
+    app:twowayview_numRows="1" />
