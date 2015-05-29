@@ -353,6 +353,10 @@ public abstract class BaseLayoutManager extends TwoWayLayoutManager {
 
         final int itemCount = state.getItemCount();
 
+        if (mItemEntries != null) {
+            mItemEntries.setAdapterSize(itemCount);
+        }
+
         final int anchorItemPosition = getAnchorItemPosition(state);
 
         // Only move layout if we're not restoring a layout state.
